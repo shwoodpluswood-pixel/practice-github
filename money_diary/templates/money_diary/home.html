@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>家計簿</title>
+  <script src="https://cdn.skypack.dev/@hotwired/turbo"></script>
+</head>
+<body>
+  <h1>収入登録</h1>
+
+  <turbo-frame id="income-list">
+    <form method="post" action="{% url 'add_income' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">保存</button>
+    </form>
+  </turbo-frame>
+
+  <h2>収入一覧</h2>
+  <turbo-frame id="income-list">
+    {% include 'money_diary/income_list.html' %}
+  </turbo-frame>
+</body>
+</html>

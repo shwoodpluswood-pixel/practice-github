@@ -1,0 +1,7 @@
+<ul>
+  {% for income in incomes %}
+    <li>{{ income.date }} - {{ income.source }}: ¥{{ income.amount }}</li>
+  {% empty %}
+    <li>まだ収入が登録されていません。</li>
+  {% endfor %}
+</ul>
